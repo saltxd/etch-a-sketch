@@ -1,6 +1,7 @@
 
 
 const container = document.querySelector('.container');
+const resetButton = document.querySelector('#reset');
 
 function createGrid(num) {
   container.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
@@ -16,6 +17,15 @@ function createGrid(num) {
     container.appendChild(box);
   }
 }
+
+resetButton.addEventListener('click', () => {
+    let gridSize = prompt('Enter a number of squares per side (max 100):');
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+    if (gridSize > 100) gridSize = 100;
+    createGrid(gridSize);
+});
 
 createGrid(16);
 
