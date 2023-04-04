@@ -17,12 +17,14 @@ function createGrid(num) {
   }
 }
 
+//clears grid
 function removeGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     } 
 }
 
+//asks user to input gridSize capped at 100x100
 newGrid.addEventListener('click', () => {
     let gridSize = prompt('Enter a number of squares per side (max 100):');
     while (container.firstChild) {
